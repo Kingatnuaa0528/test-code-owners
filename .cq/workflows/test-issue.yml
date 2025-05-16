@@ -1,0 +1,24 @@
+name: test-issue
+version: v2.0
+workflow:
+  start:
+    pipeline: test-issue
+    application: github-test-code-owner
+    exclusive: false
+    timeout: 0
+    payload:
+      git.author: ""
+      git.branch: main
+      git.hash: ""
+      git.hash.before: ""
+      git.message: ""
+      git.repository: Kingatnuaa0528/test-code-owners
+      git.tag: ""
+hooks:
+  start:
+  - type: Git Repository Poller
+    config:
+      actionFilter: opened, assigned
+      commentPattern: ""
+      eventFilter: issues
+      skipDuplicatedRuns: "false"
