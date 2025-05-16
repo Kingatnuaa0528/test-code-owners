@@ -1,22 +1,9 @@
 version: v1.0
 name: test-issue
-# parameters:
-  # source_git_url:
-  #   type: string
-  #   default: git@code.byted.org:lynx/template-assembler.git
-  # target_branch:
-  #   type: string
-  #   default: '{{.git.branch}}'
-  # target_git_url:
-  #   type: string
-  #   default: https://github.com/lynx-family/lynx
-  # target_path:
-  #   type: string
-  #   default: lynx
 jobs:
-- job: PushPatch
+- job: IssueSync
   steps:
-  - bytest-upload-and-run:
+  - github-issue-sync-lark:
       token: '{{.cds.proj.bytest_token}}'
       manager: wangjianliang
       repository: '{{.git.repository}}'
