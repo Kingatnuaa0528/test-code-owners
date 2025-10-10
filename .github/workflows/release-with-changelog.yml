@@ -54,6 +54,7 @@ jobs:
       id: build_artifact
 
     - name: Get release info
+      if: ${{ github.event_name == 'push' }}
       id: get_release
       uses: octokit/request-action@v2.x
       with:
